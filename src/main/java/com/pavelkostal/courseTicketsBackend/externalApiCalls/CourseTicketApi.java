@@ -4,7 +4,7 @@ import com.pavelkostal.courseTicketsBackend.entity.CourseTicket;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @FeignClient(
         name = "CourseTicketApi",
@@ -14,5 +14,5 @@ import java.util.ArrayList;
 public interface CourseTicketApi {
 
     @GetMapping("")
-    ArrayList<CourseTicket> getCourseTickets();
+    List<CourseTicket> getCourseTickets();
 }

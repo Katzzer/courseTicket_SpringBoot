@@ -2,24 +2,31 @@ package com.pavelkostal.courseTicketsBackend.service;
 
 import com.pavelkostal.courseTicketsBackend.entity.CourseTicket;
 import com.pavelkostal.courseTicketsBackend.externalApiCalls.CourseTicketApi;
-import lombok.RequiredArgsConstructor;
+import com.pavelkostal.courseTicketsBackend.repository.CourseTicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 //@RequiredArgsConstructor
 public class CourseTicketService {
     
     CourseTicketApi courseTicketApi;
+    CourseTicketRepository courseTicketRepository;
 
     @Autowired
-    public CourseTicketService(CourseTicketApi courseTicketApi) {
+    public CourseTicketService(CourseTicketApi courseTicketApi, CourseTicketRepository courseTicketRepository) {
         this.courseTicketApi = courseTicketApi;
+        this.courseTicketRepository = courseTicketRepository;
     }
 
-    public ArrayList<CourseTicket> getTicketsFromPublicApi() {
+    public List<CourseTicket> getTicketsFromPublicApi() {
         return courseTicketApi.getCourseTickets();
+    }
+
+    public List<CourseTicket> getTicketsFromDb() {
+        return courseTicketRepository.findAll();
     }
 }
