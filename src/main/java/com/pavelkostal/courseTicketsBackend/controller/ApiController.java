@@ -26,7 +26,6 @@ public class ApiController {
 
     @GetMapping
     public ArrayList<CourseTicket> getCourseTickets() {
-        courseTicketService.getTicketsFromPublicApi();
-        return null;
+        return courseTicketService.getTicketsFromPublicApi();
     }
 }

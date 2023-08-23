@@ -1,5 +1,6 @@
 package com.pavelkostal.courseTicketsBackend.externalApiCalls;
 
+import com.pavelkostal.courseTicketsBackend.entity.CourseTicket;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -13,6 +14,5 @@ import java.util.ArrayList;
 public interface CourseTicketApi {
 
     @GetMapping("")
-    ArrayList<Object> getCourseTickets();
-
+    ArrayList<CourseTicket> getCourseTickets();
 }

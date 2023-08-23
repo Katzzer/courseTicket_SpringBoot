@@ -1,9 +1,12 @@
 package com.pavelkostal.courseTicketsBackend.service;
 
+import com.pavelkostal.courseTicketsBackend.entity.CourseTicket;
 import com.pavelkostal.courseTicketsBackend.externalApiCalls.CourseTicketApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 
 @Service
 //@RequiredArgsConstructor
@@ -16,7 +19,7 @@ public class CourseTicketService {
         this.courseTicketApi = courseTicketApi;
     }
 
-    public void getTicketsFromPublicApi() {
-        courseTicketApi.getCourseTickets();
+    public ArrayList<CourseTicket> getTicketsFromPublicApi() {
+        return courseTicketApi.getCourseTickets();
     }
 }
