@@ -1,17 +1,16 @@
 package com.pavelkostal.courseTicketsBackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity(name = "CourseTicket")
 @Table(name = "course-ticket")
-@Getter
-@Setter
 public class CourseTicket {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
+    @JsonIgnore
     private Long id;
 
     @Column(name = "short-name")
